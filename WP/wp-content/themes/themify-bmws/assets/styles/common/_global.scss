@@ -1,0 +1,28 @@
+html {
+  // Always display the vertical scrollbar
+  overflow-y: scroll;
+}
+
+// To avoid these elements to bleed through the parent
+img,
+iframe,
+embed {
+  max-width: 100%;
+}
+
+p,
+span,
+li,
+a,
+label,
+blockquote {
+  line-height: $line-height-project;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.centered-contents {
+  text-align: center;
+}

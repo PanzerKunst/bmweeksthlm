@@ -1,0 +1,38 @@
+/*
+Theme Name: Themify BMWS
+Description: Child theme for Burning Man Week Stockholm
+Author: Christophe Bram
+Template: themify-landing
+*/
+
+/* write custom css below */
+
+
+// Pre-libs vendor overrides
+@import "vendor-overrides/pre-import/_fontAwesome";
+
+// Libs
+@import "../../node_modules/bourbon/app/assets/stylesheets/_bourbon";
+@import "../../node_modules/js-breakpoints/breakpoints";
+
+// Utils
+@import "common/_variables";
+@import "common/_mixins";
+
+// Post-import vendor overrides
+
+// Global
+@import "common/_global";
+@import "common/_projectGlobal";
+
+// UX components
+@import "components/_type";
+@import "components/_links";
+@import "components/_buttons";
+@import "components/_lists";
+
+// Layouts and partials
+@import "layouts/_fbEvents";
+
+// Browser hacks
+@import "_browserSpecific";

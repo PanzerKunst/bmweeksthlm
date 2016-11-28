@@ -1,0 +1,12 @@
+node_modules
+.idea
+*.iml
+/WP/wp-admin
+/WP/wp-includes
+/WP/wp-content/plugins
+/WP/wp-content/upgrade
+/WP/wp-content/uploads
+/WP/wp-content/themes/twentysixteen
+/WP/wp-content/themes/twentyfourteen
+/WP/wp-content/themes/twentyfifteen
+/WP/wp-content/themes/themify-landing
