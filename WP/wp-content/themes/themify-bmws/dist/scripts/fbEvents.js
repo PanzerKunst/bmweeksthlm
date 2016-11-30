@@ -42,13 +42,21 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
+	var _store = __webpack_require__(1);
+
+	var _store2 = _interopRequireDefault(_store);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 	var controller = {
 	    init: function init() {
-	        ReactDOM.render(React.createElement(this.reactComponent), document.querySelector("[role=main]"));
+	        _store2.default.reactComponent = ReactDOM.render(React.createElement(this.reactComponent), document.querySelector("[role=main]"));
+
+	        _store2.default.init();
 	    },
 
 
@@ -57,32 +65,143 @@
 	        render: function render() {
 	            return React.createElement(
 	                "div",
-	                { id: "content" },
-	                "Hello React!"
+	                { className: "fb-events" },
+	                React.createElement(
+	                    "div",
+	                    { className: "event-list-wrapper" },
+	                    React.createElement(
+	                        "ul",
+	                        { className: "styleless" },
+	                        _store2.default.fbEventData.map(function (fbEvent) {
+	                            return React.createElement(
+	                                "li",
+	                                { key: fbEvent.id },
+	                                React.createElement(
+	                                    "a",
+	                                    { href: "https://facebook.com/" + fbEvent.id, target: "_blank" },
+	                                    React.createElement(
+	                                        "figure",
+	                                        null,
+	                                        React.createElement("img", { src: fbEvent.imgUrl })
+	                                    ),
+	                                    React.createElement(
+	                                        "aside",
+	                                        null,
+	                                        React.createElement(
+	                                            "h2",
+	                                            null,
+	                                            fbEvent.name
+	                                        )
+	                                    )
+	                                )
+	                            );
+	                        })
+	                    )
+	                )
 	            );
-	        },
-	        componentDidMount: function componentDidMount() {
-	            var _this = this;
-
-	            $(window).on("facebook:init", function () {
-	                return _this._fbRequest();
-	            });
-	        },
-	        _fbRequest: function _fbRequest() {
-
-	            // TODO
-	            FB.api("/653056831543408?fields=cover,description,start_time,name,place", {
-	                access_token: "1833011923649309|77M2J2UJc9sdgYZYnzE8xx15MAc"
-	            }, function (response) {
-	                if (response && !response.error) {
-	                    console.log("FB reponse", response);
-	                }
-	            });
 	        }
 	    })
 	};
 
 	controller.init();
+
+/***/ },
+/* 1 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	var store = {
+	    fbEventIds: [],
+	    fbEventData: [],
+
+	    init: function init() {
+	        var _this = this;
+
+	        $(window).on("facebook:init", function () {
+	            return _this._fetchFacebookEventData();
+	        });
+	    },
+	    _fetchFacebookEventData: function _fetchFacebookEventData() {
+	        var _this2 = this;
+
+	        for (var i = 1; i < 11; i++) {
+	            var fbEventId = this._extractFbEventIdFromAcf("fbEventShortNameAndId" + i);
+
+	            if (fbEventId) {
+	                this.fbEventIds.push(fbEventId);
+	            }
+	        }
+
+	        var _iteratorNormalCompletion = true;
+	        var _didIteratorError = false;
+	        var _iteratorError = undefined;
+
+	        try {
+	            for (var _iterator = this.fbEventIds[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	                var eventId = _step.value;
+
+	                this._requestFbEventData(eventId, function (fbEvent) {
+	                    return _this2._processFbEventData(fbEvent);
+	                });
+	            }
+	        } catch (err) {
+	            _didIteratorError = true;
+	            _iteratorError = err;
+	        } finally {
+	            try {
+	                if (!_iteratorNormalCompletion && _iterator.return) {
+	                    _iterator.return();
+	                }
+	            } finally {
+	                if (_didIteratorError) {
+	                    throw _iteratorError;
+	                }
+	            }
+	        }
+	    },
+	    _processFbEventData: function _processFbEventData(fbEvent) {
+	        this.fbEventData.push({
+	            id: parseInt(fbEvent.id, 10),
+	            name: fbEvent.name,
+	            description: fbEvent.description,
+	            startMoment: moment(fbEvent.start_time),
+	            imgUrl: fbEvent.cover.source
+	        });
+
+	        if (this.fbEventData.length === this.fbEventIds.length) {
+	            this.fbEventData = _.sortBy(this.fbEventData, function (e) {
+	                return e.startMoment.valueOf();
+	            });
+	            this.reactComponent.forceUpdate();
+	        }
+	    },
+	    _extractFbEventIdFromAcf: function _extractFbEventIdFromAcf(controllerDataVarName) {
+	        var shortNameAndId = BM.ControllerData[controllerDataVarName];
+
+	        if (!shortNameAndId) {
+	            return null;
+	        }
+
+	        var fbEventId = shortNameAndId.substring(shortNameAndId.indexOf(";") + 1);
+
+	        return _.isEmpty(fbEventId) ? null : parseInt(fbEventId, 10);
+	    },
+	    _requestFbEventData: function _requestFbEventData(fbEventId, onSuccess) {
+	        FB.api("/" + fbEventId + "?fields=cover,description,start_time,name,place", {
+	            access_token: "1833011923649309|77M2J2UJc9sdgYZYnzE8xx15MAc"
+	        }, function (response) {
+	            if (response && !response.error && _.isFunction(onSuccess)) {
+	                onSuccess(response);
+	            }
+	        });
+	    }
+	};
+
+	exports.default = store;
 
 /***/ }
 /******/ ]);

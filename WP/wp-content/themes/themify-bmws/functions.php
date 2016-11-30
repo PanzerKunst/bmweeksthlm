@@ -23,7 +23,16 @@ function fb_events(){
 
     <script type='text/javascript'>
         BM.ControllerData = {
-          fbEventShotNameAndId1: '" . get_field("fb_event_short_name_and_id_1", get_the_ID()) . "'
+          fbEventShortNameAndId1: '" . get_field("fb_event_short_name_and_id_1", get_the_ID()) . "',
+          fbEventShortNameAndId2: '" . get_field("fb_event_short_name_and_id_2", get_the_ID()) . "',
+          fbEventShortNameAndId3: '" . get_field("fb_event_short_name_and_id_3", get_the_ID()) . "',
+          fbEventShortNameAndId4: '" . get_field("fb_event_short_name_and_id_4", get_the_ID()) . "',
+          fbEventShortNameAndId5: '" . get_field("fb_event_short_name_and_id_5", get_the_ID()) . "',
+          fbEventShortNameAndId6: '" . get_field("fb_event_short_name_and_id_6", get_the_ID()) . "',
+          fbEventShortNameAndId7: '" . get_field("fb_event_short_name_and_id_7", get_the_ID()) . "',
+          fbEventShortNameAndId8: '" . get_field("fb_event_short_name_and_id_8", get_the_ID()) . "',
+          fbEventShortNameAndId9: '" . get_field("fb_event_short_name_and_id_9", get_the_ID()) . "',
+          fbEventShortNameAndId10: '" . get_field("fb_event_short_name_and_id_10", get_the_ID()) . "'
         };
     </script>
 

@@ -150,6 +150,7 @@ globals:
     classNames: true
     TweenLite: true
     Power4: true
+    moment: true
     Modernizr: true
     BM: true
     FB: true

@@ -1,3 +1,17 @@
 .fb-events {
-  display: block;
+  > .event-list-wrapper {
+    text-align: center;
+  }
+
+  ul {
+    display: inline-block;
+
+    > li {
+      display: inline-block;
+
+      vertical-align: top;
+      padding: 0 $spacer-unit-size;
+      max-width: $small-content-width;
+    }
+  }
 }

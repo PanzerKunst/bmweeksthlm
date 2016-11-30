@@ -102,7 +102,7 @@ gulp.task("js-lint", function() {
 // `gulp js-bundle`
 gulp.task("js-bundle", function() {
     runWebpack("common.js");
-    return runWebpack("fbEvents.js");
+    return runWebpack("fbEvents.js", "controllers/fb-events/");
 });
 
 function runWebpack(entryFileName, srcSubDir) {
@@ -143,6 +143,7 @@ gulp.task("js-libs-concat", function() {
         gulp.src("node_modules/gsap/src/uncompressed/TweenLite.js"),
         gulp.src("node_modules/gsap/src/uncompressed/easing/EasePack.js"),
         gulp.src("node_modules/gsap/src/uncompressed/plugins/CSSPlugin.js"),
+        gulp.src("node_modules/moment/moment.js"),
         gulp.src(scriptVendorFiles))
         .pipe(concat(scriptDistFileNameConcat))
         .pipe(gulp.dest(scriptDistDir));

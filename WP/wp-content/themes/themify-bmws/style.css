@@ -90,8 +90,16 @@ ol {
     padding-left: 0;
     list-style-type: none; }
 
-.fb-events {
-  display: block; }
+.fb-events > .event-list-wrapper {
+  text-align: center; }
+
+.fb-events ul {
+  display: inline-block; }
+  .fb-events ul > li {
+    display: inline-block;
+    vertical-align: top;
+    padding: 0 14px;
+    max-width: 320px; }
 
 /* iOS */
 /* IE */
