@@ -11,7 +11,7 @@ session_start();
 
 // [fb-events]
 function fb_events(){
-    $markup = "<div role='main'></div>
+    $markup = "<div role='main' />
 
     <script type='text/javascript' src='/wp-content/themes/themify-bmws/dist/scripts/libs.js'></script>
     <script type='text/javascript'>
@@ -32,7 +32,27 @@ function fb_events(){
           fbEventShortNameAndId7: '" . get_field("fb_event_short_name_and_id_7", get_the_ID()) . "',
           fbEventShortNameAndId8: '" . get_field("fb_event_short_name_and_id_8", get_the_ID()) . "',
           fbEventShortNameAndId9: '" . get_field("fb_event_short_name_and_id_9", get_the_ID()) . "',
-          fbEventShortNameAndId10: '" . get_field("fb_event_short_name_and_id_10", get_the_ID()) . "'
+          fbEventShortNameAndId10: '" . get_field("fb_event_short_name_and_id_10", get_the_ID()) . "',
+          fbEventShortNameAndId11: '" . get_field("fb_event_short_name_and_id_11", get_the_ID()) . "',
+          fbEventShortNameAndId12: '" . get_field("fb_event_short_name_and_id_12", get_the_ID()) . "',
+          fbEventShortNameAndId13: '" . get_field("fb_event_short_name_and_id_13", get_the_ID()) . "',
+          fbEventShortNameAndId14: '" . get_field("fb_event_short_name_and_id_14", get_the_ID()) . "',
+          fbEventShortNameAndId15: '" . get_field("fb_event_short_name_and_id_15", get_the_ID()) . "',
+          fbEventShortNameAndId16: '" . get_field("fb_event_short_name_and_id_16", get_the_ID()) . "',
+          fbEventShortNameAndId17: '" . get_field("fb_event_short_name_and_id_17", get_the_ID()) . "',
+          fbEventShortNameAndId18: '" . get_field("fb_event_short_name_and_id_18", get_the_ID()) . "',
+          fbEventShortNameAndId19: '" . get_field("fb_event_short_name_and_id_19", get_the_ID()) . "',
+          fbEventShortNameAndId20: '" . get_field("fb_event_short_name_and_id_20", get_the_ID()) . "',
+          fbEventShortNameAndId21: '" . get_field("fb_event_short_name_and_id_21", get_the_ID()) . "',
+          fbEventShortNameAndId22: '" . get_field("fb_event_short_name_and_id_22", get_the_ID()) . "',
+          fbEventShortNameAndId23: '" . get_field("fb_event_short_name_and_id_23", get_the_ID()) . "',
+          fbEventShortNameAndId24: '" . get_field("fb_event_short_name_and_id_24", get_the_ID()) . "',
+          fbEventShortNameAndId25: '" . get_field("fb_event_short_name_and_id_25", get_the_ID()) . "',
+          fbEventShortNameAndId26: '" . get_field("fb_event_short_name_and_id_26", get_the_ID()) . "',
+          fbEventShortNameAndId27: '" . get_field("fb_event_short_name_and_id_27", get_the_ID()) . "',
+          fbEventShortNameAndId28: '" . get_field("fb_event_short_name_and_id_28", get_the_ID()) . "',
+          fbEventShortNameAndId29: '" . get_field("fb_event_short_name_and_id_29", get_the_ID()) . "',
+          fbEventShortNameAndId30: '" . get_field("fb_event_short_name_and_id_30", get_the_ID()) . "'
         };
     </script>
 

@@ -1,17 +1,81 @@
 .fb-events {
+  * {
+    box-sizing: border-box;
+  }
+
+  .fa-spinner {
+    font-size: 2em;
+  }
+
   > .event-list-wrapper {
     text-align: center;
   }
 
   ul {
+    margin: 0;
+  }
+
+  .day-events {
     display: inline-block;
+    margin: 0;
 
     > li {
       display: inline-block;
 
       vertical-align: top;
+      text-align: left;
+
+      margin-bottom: 2em;
       padding: 0 $spacer-unit-size;
-      max-width: $small-content-width;
+      width: $small-content-width;
+
+      > a {
+        color: black;
+      }
+    }
+  }
+
+  .event-img {
+    height: 180px;
+    background-position: center;
+    background-size: cover;
+  }
+
+  h3,
+  .event-time-and-location > span {
+    line-height: 1.2em;
+  }
+
+  h3 {
+    font-size: 1.2em;
+    margin: 0.5em 0 0.2em;
+  }
+
+  .event-time-and-location {
+    display: flex;
+
+    > span {
+      display: inline-block;
+    }
+  }
+
+  .event-time,
+  .time-location-separator {
+    margin-right: 0.5em;
+  }
+
+  .event-location {
+    width: 79%;
+  }
+}
+
+.no-flexbox {
+  .event-time-and-location {
+    display: block;
+    @include clearfix;
+
+    > span {
+      float: left;
     }
   }
 }

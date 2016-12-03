@@ -44,3 +44,10 @@ nav > a {
     text-decoration: none;
   }
 }
+
+@media screen and (max-width: $large-content-width) {
+  .pagewidth,
+  #layout {
+    max-width: 100%;
+  }
+}

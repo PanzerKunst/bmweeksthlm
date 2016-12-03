@@ -1,13 +1,14 @@
 const store = {
+    acfCount: 30,
     fbEventIds: [],
-    fbEventData: [],
+    fbEventData: {},
 
     init() {
         $(window).on("facebook:init", () => this._fetchFacebookEventData());
     },
 
     _fetchFacebookEventData() {
-        for (let i = 1; i < 11; i++) {
+        for (let i = 1; i <= this.acfCount; i++) {
             const fbEventId = this._extractFbEventIdFromAcf(`fbEventShortNameAndId${i}`);
 
             if (fbEventId) {
@@ -21,16 +22,33 @@ const store = {
     },
 
     _processFbEventData(fbEvent) {
-        this.fbEventData.push({
+        const eventMoment = moment(fbEvent.start_time);
+        const eventYyyymmdd = parseInt(eventMoment.format("YYYYMMDD"), 10);
+
+        this.fbEventData[eventYyyymmdd] = this.fbEventData[eventYyyymmdd] || [];
+
+        // Push the event to the value array
+        this.fbEventData[eventYyyymmdd].push({
             id: parseInt(fbEvent.id, 10),
             name: fbEvent.name,
             description: fbEvent.description,
             startMoment: moment(fbEvent.start_time),
+            location: fbEvent.place ? fbEvent.place.name : null,
             imgUrl: fbEvent.cover.source
         });
 
-        if (this.fbEventData.length === this.fbEventIds.length) {
-            this.fbEventData = _.sortBy(this.fbEventData, e => e.startMoment.valueOf());
+        // When all the events are added to the right place, reorder each array by start_time
+        let fbEventCount = 0;
+
+        for (const dayFbEvents of _.values(this.fbEventData)) {
+            fbEventCount += dayFbEvents.length;
+        }
+
+        if (fbEventCount === this.fbEventIds.length) {
+            for (let dayFbEvents of _.values(this.fbEventData)) {
+                dayFbEvents = _.sortBy(dayFbEvents, e => e.startMoment.valueOf());
+            }
+
             this.reactComponent.forceUpdate();
         }
     },

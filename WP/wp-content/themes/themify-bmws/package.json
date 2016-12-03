@@ -30,6 +30,7 @@
   "dependencies": {
     "bourbon": "^4.2.7",
     "classnames": "^2.2.5",
+    "font-awesome": "^4.7.0",
     "gsap": "^1.19.0",
     "js-breakpoints": "^1.0.2",
     "lodash": "^4.16.4",
