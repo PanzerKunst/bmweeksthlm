@@ -1,0 +1,15 @@
+#summary {
+    background-color: $text-color;
+    color: $background-body-color;
+
+    a,
+    a:visited,
+    a:hover,
+    a:focus {
+        color: $background-body-color;
+    }
+
+    .btn {
+        margin: 1em 0 3em;
+    }
+}

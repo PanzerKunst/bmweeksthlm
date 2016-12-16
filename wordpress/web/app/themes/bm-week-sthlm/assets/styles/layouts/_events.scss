@@ -1,0 +1,125 @@
+#events {
+    .fa-spinner {
+        font-size: 2em;
+    }
+
+    .subtitle {
+        @include subtitle;
+    }
+
+    ul {
+        margin: 0;
+    }
+
+    .event-list-wrapper {
+        text-align: center;
+        @include medium-screen {
+            text-align: left;
+        }
+    }
+
+    .weekday,
+    .weekday-month-separator,
+    .event-time,
+    .time-location-separator {
+        margin-right: 0.5em;
+    }
+
+    .event-date {
+        @include secondary-font;
+        font-weight: normal;
+        text-transform: uppercase;
+        color: $action-color;
+
+        border-bottom: 0.1em solid lighten($action-color, 15%);
+
+        padding-bottom: 0.3em;
+        margin-bottom: 0.8em;
+    }
+
+    .month {
+        color: $text-color;
+    }
+
+    .day-events {
+        display: inline-block;
+        margin: 0;
+
+        font-size: 16px;
+
+        a,
+        a:visited {
+            text-decoration: none;
+        }
+
+        > li {
+            display: inline-block;
+
+            vertical-align: top;
+            text-align: left;
+
+            margin-bottom: 2em;
+            width: $small-content-width - 2*$spacer-unit-size;
+
+            > a {
+                color: black;
+            }
+        }
+
+        @include medium-screen {
+            margin: 0 (-$spacer-unit-size);
+
+            > li {
+                padding: 0 $spacer-unit-size;
+                width: $small-content-width + $spacer-unit-size;
+            }
+        }
+
+        @include large-screen {
+            > li {
+                width: ($large-content-width + 2*$spacer-unit-size) / 3;
+            }
+        }
+    }
+
+    .event-img {
+        height: 180px;
+        background-position: center;
+        background-size: cover;
+    }
+
+    .event-name,
+    .event-time-and-location > span {
+        line-height: 1.2em;
+    }
+
+    .event-name {
+        font-size: 1.2em;
+        font-weight: 900;
+
+        margin: 0.5em 0 0.4em;
+    }
+
+    .event-time-and-location {
+        display: flex;
+
+        > span {
+            display: inline-block;
+        }
+    }
+
+    .event-location {
+        width: 78%;
+    }
+}
+
+.no-flexbox #events {
+    .event-time-and-location {
+        display: block;
+        @include clearfix;
+
+        > span {
+            float: left;
+        }
+    }
+}

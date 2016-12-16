@@ -1,0 +1,51 @@
+#faq {
+    h3 {
+        @include subtitle;
+    }
+
+    h4 {
+        @include article-title;
+
+        margin-top: 1.7em;
+    }
+
+    @include large-screen {
+        h3 {
+            margin-bottom: 0;
+        }
+
+        h4 {
+            border-top: 2px solid lighten($action-color, 15%);
+
+            padding-top: 2em;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+
+            font-size: $two-column-font-size;
+
+            > article {
+                width: $two-column-col-width;
+            }
+        }
+    }
+}
+
+.no-flexbox #faq {
+    @include large-screen {
+        .row {
+            display: block;
+            @include clearfix;
+
+            > article {
+                float: left;
+
+                &:last-child {
+                    float: right;
+                }
+            }
+        }
+    }
+}

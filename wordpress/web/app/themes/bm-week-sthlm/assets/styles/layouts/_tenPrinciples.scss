@@ -1,0 +1,43 @@
+#ten-principles {
+    h3 {
+        @include article-title;
+    }
+
+    @include large-screen {
+        h3 {
+            margin-top: 0;
+        }
+
+        > article {
+            display: flex;
+            justify-content: space-between;
+
+            font-size: $two-column-font-size;
+
+            > section {
+                width: $two-column-col-width;
+
+                > article {
+                    margin-bottom: 1.5em;
+                }
+            }
+        }
+    }
+}
+
+.no-flexbox #ten-principles {
+    @include large-screen {
+        > article {
+            display: block;
+            @include clearfix;
+
+            > section {
+                float: left;
+
+                &:last-child {
+                    float: right;
+                }
+            }
+        }
+    }
+}

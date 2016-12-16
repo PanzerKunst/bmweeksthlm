@@ -1,0 +1,32 @@
+#all-pages-as-single {
+    > .menu-item {
+        > header,
+        > article {
+            padding: 0 $spacer-unit-size;
+
+            @include medium-screen {
+                width: $medium-content-width;
+
+                padding-left: 0;
+                padding-right: 0;
+                margin: 0 auto;
+            }
+
+            @include large-screen {
+                width: $large-content-width;
+            }
+        }
+    }
+
+    h2 {
+        @include secondary-font;
+
+        font-size: 2em;
+        font-weight: normal;
+        text-transform: uppercase;
+        text-align: center;
+
+        margin: 0 0 1em;
+        padding: 1em 0 0;
+    }
+}
