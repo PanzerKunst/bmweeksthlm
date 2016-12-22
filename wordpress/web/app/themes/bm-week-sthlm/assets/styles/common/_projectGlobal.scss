@@ -64,3 +64,31 @@ a.btn:visited {
     display: inline-block;
     text-decoration: none !important;
 }
+
+.logo {
+    display: inline-block;
+
+    width: 153px;
+    height: 173px;
+
+    margin-bottom: 40px;
+
+    $logo-location-x: -1600px;
+    $logo-location-y: 0;
+
+    @include hdpi-sprite;
+    background-position: $logo-location-x $logo-location-y;
+    @include hidpi {
+        background-position: half-pos($logo-location-x, $logo-location-y);
+    }
+
+    @include medium-screen {
+        width: 204px;
+        height: 231px;
+
+        $logo-location-x: 0;
+        $logo-location-y: 0;
+
+        background-position: $logo-location-x $logo-location-y;
+    }
+}

@@ -116,7 +116,7 @@ class Walker_Index_All_Pages_As_Single extends \Walker_Nav_Menu {
         $id = str_replace("/", "", parse_url($url, PHP_URL_PATH));
         $id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
 
-        $output .= $indent . '<li' . $id . $class_names .'>';
+        $output .= $indent . '<li' . $id . $class_names . get_data_url_bg_imgs($page_id, get_post_thumbnail_id($page_id)) . '>';
 
         $atts = array();
         $atts['title']  = ! empty( $item->attr_title ) ? $item->attr_title : '';
@@ -169,7 +169,7 @@ class Walker_Index_All_Pages_As_Single extends \Walker_Nav_Menu {
         $title = apply_filters( 'nav_menu_item_title', $title, $item, $args, $depth );
 
         $item_output = $args->before;
-        $item_output .= '<header ' . get_data_url_bg_imgs($page_id, get_post_thumbnail_id($page_id)) . '>';
+        $item_output .= '<header>';
         $item_output .= '<h2>' . $title . '</h2>';
         $item_output .= '</header>';
         $item_output .= '<article>' . apply_filters('the_content', $page->post_content) . '</article>';

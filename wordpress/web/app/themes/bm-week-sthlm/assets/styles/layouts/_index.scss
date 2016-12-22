@@ -1,5 +1,12 @@
 #all-pages-as-single {
     > .menu-item {
+        &.img-bg {
+            background-size: cover;
+            background-position: center center;
+
+            text-shadow: 0 0 0.05em $background-body-color;
+        }
+
         > header,
         > article {
             padding: 0 $spacer-unit-size;

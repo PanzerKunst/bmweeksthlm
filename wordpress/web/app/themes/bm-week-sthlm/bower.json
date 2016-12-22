@@ -31,6 +31,12 @@
             "./breakpoints.scss"
         ]
     },
+    "react": {
+        "main": [
+            "./react.min.js",
+            "./react-dom.min.js"
+        ]
+    },
     "font-awesome": {
         "main": [
             "./scss/font-awesome.scss",

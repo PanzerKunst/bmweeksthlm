@@ -1,0 +1,23 @@
+body > footer {
+    background-image: url("../images/footer_background.jpg");
+    background-size: cover;
+    background-position: center center;
+
+    padding: 100px 0;
+
+    .logo {
+        margin-bottom: 0.5em;
+    }
+
+    .blog-name {
+        @include secondary-font;
+        color: $background-body-color;
+        text-transform: uppercase;
+        line-height: 1.3em;
+        letter-spacing: 0.2em;
+        font-size: 0.9em;
+
+        display: inline-block;
+        max-width: 11em;
+    }
+}

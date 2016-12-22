@@ -5,8 +5,9 @@
     width: 100%;
     z-index: $z-index-menu;
 
-    padding: 0.4em 0;
+    padding: 0.5em 0 0.4em;
 
+    font-size: 16px;
     @include text-shadow;
 
     > a,
@@ -40,9 +41,7 @@
     }
 
     &.scrolled-down > .nav-primary {
-        background-color: $text-color;
-
-        @include bottom-shadow;
+        background-color: transparentize($text-color, 0.2);
     }
 
     h1 {
@@ -53,7 +52,7 @@
         @include text-shadow;
 
         margin: 0;
-        padding: 1.3em 0 2em;
+        padding: 1.3em 0 20px;
 
         display: inline-block;
         max-width: 8em;
@@ -64,6 +63,7 @@
     color: $text-color;
     background-color: $background-body-color;
     font-weight: 700;
+    font-size: 1.2em;
 
     padding: 0.5em 1em;
 }
@@ -74,10 +74,7 @@
     > .menu-item {
         display: inline-block;
 
-        margin-right: 1.3em;
-        @include medium-screen {
-            margin-right: 3.6em;
-        }
+        margin-right: 0.9em;
 
         // Hiding the link to the Summary
         &:first-child {

@@ -1,9 +1,20 @@
 #ten-principles {
+    background-color: $text-color;
+    color: $background-body-color;
+
+    // `&.menu-item` required to have high-enough specificity to override default
+    &.menu-item > article {
+        padding-bottom: 2em;
+    }
+
     h3 {
         @include article-title;
     }
 
     @include large-screen {
+        background-color: $background-body-color;
+        color: $text-color;
+
         h3 {
             margin-top: 0;
         }

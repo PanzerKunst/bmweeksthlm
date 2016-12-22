@@ -6,6 +6,7 @@ CB.Controllers.Common = {
         this._initElements();
         this._initEvents();
         this._removeEmptyParagraphTagsAddedByTheWpEditor();
+        this._initPageBackgrounds();
     },
 
     _initElements() {
@@ -14,6 +15,7 @@ CB.Controllers.Common = {
         this.$siteHeader = $("#site-header");
         this.$siteMenu = $(".nav-primary");
         this.$scrollingAnchors = $("body").find("a[href^='#']");
+        this.$pages = $("#all-pages-as-single").children();
     },
 
     _initEvents() {
@@ -29,5 +31,25 @@ CB.Controllers.Common = {
         const isScrolledDownEnough = this.$window.scrollTop() > 0;
 
         this.$siteHeader.toggleClass("scrolled-down", isScrolledDownEnough);
+    },
+
+    _initPageBackgrounds() {
+        _.forEach(this.$pages, page => {
+            const $page = $(page);
+            const dataUrlBgImgLarge = $page.data("urlBgImgLarge");
+            const dataUrlBgImgSmall = $page.data("urlBgImgSmall");
+
+            if (!CB.Services.Browser.isLargeScreen()
+                && !window.matchMedia("(min-resolution: 2dppx)").matches
+                && dataUrlBgImgSmall) {
+
+                $page.addClass("img-bg");
+                $page.css("background-image", "url(" + dataUrlBgImgSmall + ")");
+            } else if ((CB.Services.Browser.isLargeScreen() || CB.Services.Browser.isXlScreen())
+                && dataUrlBgImgLarge) {
+                $page.addClass("img-bg");
+                $page.css("background-image", "url(" + dataUrlBgImgLarge + ")");
+            }
+        });
     }
 };

@@ -1,4 +1,8 @@
 #events {
+    > article > p {
+        font-weight: lighter;
+    }
+
     .fa-spinner {
         font-size: 2em;
     }
@@ -12,6 +16,8 @@
     }
 
     .event-list-wrapper {
+        margin-bottom: 1em;
+
         text-align: center;
         @include medium-screen {
             text-align: left;

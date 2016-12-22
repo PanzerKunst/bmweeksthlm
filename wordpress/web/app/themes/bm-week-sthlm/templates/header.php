@@ -6,6 +6,9 @@
             <h1><?php bloginfo('name'); ?></h1>
         </div>
         <div class="centered-contents">
+            <span class="logo"></span>
+        </div>
+        <div class="centered-contents">
             <span class="blog-description"><?php bloginfo('description'); ?></span>
         </div>
     </div>
