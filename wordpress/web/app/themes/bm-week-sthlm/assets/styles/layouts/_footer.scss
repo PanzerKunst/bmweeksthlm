@@ -9,15 +9,13 @@ body > footer {
         margin-bottom: 0.5em;
     }
 
-    .blog-name {
-        @include secondary-font;
+    .disclaimer {
         color: $background-body-color;
-        text-transform: uppercase;
-        line-height: 1.3em;
-        letter-spacing: 0.2em;
-        font-size: 0.9em;
+        line-height: 1.5em;
+        font-size: 0.7em;
+        font-weight: lighter;
+        @include text-shadow;
 
-        display: inline-block;
-        max-width: 11em;
+        padding: 1em $spacer-unit-size 0;
     }
 }
