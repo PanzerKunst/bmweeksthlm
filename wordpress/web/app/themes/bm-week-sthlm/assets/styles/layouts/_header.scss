@@ -83,6 +83,12 @@
         display: inline-block;
 
         margin-right: 0.9em;
+        @include medium-screen {
+            margin-right: 5.4em;
+        }
+        @include large-screen {
+            margin-right: 7.7em;
+        }
 
         // Hiding the link to the Summary
         &:first-child {
