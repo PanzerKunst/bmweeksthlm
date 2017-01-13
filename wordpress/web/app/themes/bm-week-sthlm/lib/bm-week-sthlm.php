@@ -345,10 +345,6 @@ function fb_events(){
     $markup = "<div role='main'></div>
 
     <script type='text/javascript'>
-
-        // TODO: remove
-        console.log('Init CB.ControllerData');
-
         var CB = {
           ControllerData: {
               fbEventShortNameAndId1: '" . get_field("fb_event_short_name_and_id_1", $eventsPageId) . "',
