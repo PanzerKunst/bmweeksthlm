@@ -1,25 +1,22 @@
 #ten-principles {
-    background-color: $text-color;
+    background-color: $action-color;
     color: $background-body-color;
 
     // `&.menu-item` required to have high-enough specificity to override default
     &.menu-item > article {
-        padding-bottom: 2em;
+        padding-bottom: $section-bottom-margin;
     }
 
     h3 {
         @include article-title;
-    }
 
-    @include large-screen {
-        background-color: $background-body-color;
-        color: $text-color;
-
-        h3 {
+        @include large-screen {
             margin-top: 0;
         }
+    }
 
-        > article {
+    #principles {
+        @include large-screen {
             display: flex;
             justify-content: space-between;
 
@@ -36,18 +33,16 @@
     }
 }
 
-.no-flexbox #ten-principles {
+.no-flexbox #principles {
     @include large-screen {
-        > article {
-            display: block;
-            @include clearfix;
+        display: block;
+        @include clearfix;
 
-            > section {
-                float: left;
+        > section {
+            float: left;
 
-                &:last-child {
-                    float: right;
-                }
+            &:last-child {
+                float: right;
             }
         }
     }

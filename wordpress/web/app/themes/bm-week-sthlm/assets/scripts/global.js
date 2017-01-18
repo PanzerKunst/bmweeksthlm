@@ -19,3 +19,5 @@ CB.httpStatusCodes = {
 
 CB.localStorageKeys = {
 };
+
+CB.themeRoot = "wp-content/themes/bm-week-sthlm";  // "wp-content/themes/bm-week-sthlm" | "app/themes/bm-week-sthlm"

@@ -15,6 +15,17 @@
   border-bottom: 1px dashed $well-border-color;
 }
 
+@mixin primary-btn {
+    background-color: $action-color;
+    color: $background-body-color;
+
+    padding: 0.5em 3em;
+    border-radius: 0.1em;
+
+    @include secondary-font;
+    text-transform: uppercase;
+}
+
 button.styleless.fa {
   padding: 0.93em 1.04em;
   @include medium-screen {
@@ -46,17 +57,33 @@ nav > a {
 }
 
 button.primary,
-a.btn.primary {
-    background-color: $action-color;
-    padding: 0.5em 3em;
-    border-radius: 0.1em;
-
-    @include secondary-font;
-    text-transform: uppercase;
+button.inverted {
+    @include styleless-btn;
 }
 
-button.primary {
-    @include styleless-btn;
+button.primary,
+a.btn.primary {
+    @include primary-btn;
+}
+
+button.inverted,
+a.btn.inverted {
+    @include primary-btn;
+
+    background-color: $background-body-color;
+    color: $action-color;
+}
+
+button.with-icon,
+a.btn.with-icon {
+    padding-right: 2em;
+
+    > .fa {
+        margin: -0.2em 0 0 1em;
+        vertical-align: middle;
+        font-size: 0.7em;
+
+    }
 }
 
 a.btn,

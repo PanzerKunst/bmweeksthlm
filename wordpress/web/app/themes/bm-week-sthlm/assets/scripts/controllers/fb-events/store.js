@@ -42,7 +42,7 @@ CB.Controllers.FbEvents.store = {
             description: fbEvent.description,
             startMoment: moment(fbEvent.start_time),
             location: fbEvent.place ? fbEvent.place.name : null,
-            imgUrl: fbEvent.cover.source
+            imgUrl: fbEvent.cover ? fbEvent.cover.source : `${CB.themeRoot}/dist/images/event-placeholder.jpg`
         });
 
         // When all the events are added to the right place, reorder each array by start_time
