@@ -1,31 +1,3 @@
-@mixin project-border {
-  border: 1px solid $well-border-color;
-  border-radius: $default-border-radius;
-}
-
-@mixin bottom-shadow($color: black, $lighten: 0%) {
-  box-shadow: 0 0.2em 1em -0.1em lighten($color, $lighten);
-}
-
-@mixin tight-letter-spacing {
-  letter-spacing: -0.05em;
-}
-
-@mixin dashed-border-bottom {
-  border-bottom: 1px dashed $well-border-color;
-}
-
-@mixin primary-btn {
-    background-color: $action-color;
-    color: $background-body-color;
-
-    padding: 0.5em 3em;
-    border-radius: 0.1em;
-
-    @include secondary-font;
-    text-transform: uppercase;
-}
-
 button.styleless.fa {
   padding: 0.93em 1.04em;
   @include medium-screen {

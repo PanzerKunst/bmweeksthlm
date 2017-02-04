@@ -53,8 +53,8 @@ CB.Controllers.FbEvents.store = {
         }
 
         if (fbEventCount === this.fbEventIds.length) {
-            for (let dayFbEvents of _.values(this.fbEventData)) {
-                dayFbEvents = _.sortBy(dayFbEvents, e => e.startMoment.valueOf());
+            for (const yyyymmdd of _.keys(this.fbEventData)) {
+                this.fbEventData[yyyymmdd] = _.sortBy(this.fbEventData[yyyymmdd], e => e.startMoment.valueOf());
             }
 
             this.reactComponent.forceUpdate();

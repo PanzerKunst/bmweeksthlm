@@ -1,4 +1,6 @@
 #all-pages-as-single {
+    margin: 0;
+
     > .menu-item {
         &.img-bg {
             background-size: cover;
@@ -23,6 +25,10 @@
                 width: $large-content-width;
             }
         }
+
+        > article {
+            padding-bottom: 2em;
+        }
     }
 
     h2 {
@@ -35,5 +41,24 @@
 
         margin: 0 0 1em;
         padding: 1em 0 0;
+    }
+}
+
+.menu-item-object-page > article {
+    > h3 {
+        @include subtitle;
+    }
+
+    > p,
+    > ul {
+        font-weight: lighter;
+
+        @include large-screen {
+            max-width: ($medium-content-width + $large-content-width) / 2;
+            font-size: 0.9em;
+
+            margin-left: auto;
+            margin-right: auto;
+        }
     }
 }

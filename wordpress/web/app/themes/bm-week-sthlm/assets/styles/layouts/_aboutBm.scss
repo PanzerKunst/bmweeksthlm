@@ -1,10 +1,4 @@
 #about-bm {
-    // `&.menu-item` required to have high-enough specificity to override default
-    &.menu-item > article {
-        padding-bottom: $section-bottom-margin;
-
-        font-weight: lighter;
-    }
 }
 
 .no-flexbox #about-bm {

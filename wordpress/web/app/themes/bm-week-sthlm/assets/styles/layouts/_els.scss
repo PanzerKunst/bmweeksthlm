@@ -1,0 +1,21 @@
+#els {
+    @include black-bg;
+
+    > article > ul {
+        margin-bottom: $section-bottom-margin;
+
+        @include medium-screen {
+            display: flex;
+            flex-wrap: wrap;
+
+            > li {
+                width: 50%;
+            }
+        }
+        @include large-screen {
+            > li {
+                width: (100% / 3);
+            }
+        }
+    }
+}

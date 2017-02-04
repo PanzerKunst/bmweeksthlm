@@ -54,8 +54,7 @@ CB.Controllers.Common = {
 
                 $page.addClass("img-bg");
                 $page.css("background-image", "url(" + dataUrlBgImgSmall + ")");
-            } else if ((CB.Services.Browser.isLargeScreen() || CB.Services.Browser.isXlScreen())
-                && dataUrlBgImgLarge) {
+            } else if (dataUrlBgImgLarge) {
                 $page.addClass("img-bg");
                 $page.css("background-image", "url(" + dataUrlBgImgLarge + ")");
             }

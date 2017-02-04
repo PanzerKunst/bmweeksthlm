@@ -91,11 +91,13 @@
 }
 
 // 10 Principles
-#menu-item-91,      // Dev
-#menu-item-5070 {   // Prod
-    display: none;
+#menu-main-menu > { // Required to have high-enough specificity to override default
+    #menu-item-91,      // Dev
+    #menu-item-5070 {   // Prod
+        display: none;
 
-    @include medium-screen {
-        display: inline-block;
+        @include medium-screen {
+            display: inline-block;
+        }
     }
 }

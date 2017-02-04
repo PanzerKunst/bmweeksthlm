@@ -1,18 +1,8 @@
 #summary {
-    background-color: $text-color;
-    color: $background-body-color;
-
-    font-weight: lighter;
-
-    a,
-    a:visited,
-    a:hover,
-    a:focus {
-        color: $background-body-color;
-    }
+    @include black-bg;
 
     .btn {
         font-weight: normal;
-        margin: 1em 0 $section-bottom-margin;
+        margin: 1em 0 0.5em;
     }
 }

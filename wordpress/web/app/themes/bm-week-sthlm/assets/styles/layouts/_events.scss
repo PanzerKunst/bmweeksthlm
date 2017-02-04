@@ -1,18 +1,6 @@
 #events {
-    > article > p {
-        font-weight: lighter;
-    }
-
     .fa-spinner {
         font-size: 2em;
-    }
-
-    .subtitle {
-        @include subtitle;
-    }
-
-    ul {
-        margin: 0;
     }
 
     .event-list-wrapper {
