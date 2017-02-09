@@ -62,6 +62,12 @@ CB.Services.Animator = {
 
         const scrollYPos = $section.offset().top - offsetCorrection;
 
-        TweenLite.to(window, 1, {scrollTo: scrollYPos, ease: Power4.easeOut});
+        TweenLite.to(window, 1, {
+            scrollTo: {
+                y: scrollYPos,
+                autoKill: false  // To avoid bug https://greensock.com/forums/topic/15108-ios-10-scrolltoplugin
+            },
+            ease: Power4.easeOut
+        });
     }
 };
